@@ -1,0 +1,32 @@
+iniciar-programa
+    define-nueva-instruccion pasa como inicio
+       si frente-libre entonces inicio
+        si junto-a-zumbador entonces inicio
+            coge-zumbador;
+            pasa;
+            deja-zumbador;
+        fin sino inicio
+            avanza;
+            pasa;
+            si no-orientado-al-sur entonces avanza sino gira-izquierda;
+        fin;
+       fin sino inicio
+           repetir 2 veces gira-izquierda;
+           mientras frente-libre hacer avanza;
+           gira-izquierda;
+           mientras derecha-bloqueada hacer avanza;
+           repetir 3 veces gira-izquierda;
+           avanza;
+           repetir 3 veces gira-izquierda;
+           mientras frente-libre hacer avanza;
+        fin;
+    fin;
+    inicia-ejecucion
+        repetir 3 veces gira-izquierda;
+        mientras frente-libre hacer avanza;
+        repetir 2 veces gira-izquierda;
+        mientras no-junto-a-zumbador hacer avanza;
+        pasa;
+        apagate;
+    termina-ejecucion
+finalizar-programa
