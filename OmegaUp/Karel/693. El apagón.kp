@@ -1,0 +1,31 @@
+iniciar-programa
+    define-nueva-instruccion esquiva(n) como inicio
+       si frente-libre entonces inicio
+            si derecha-libre entonces inicio
+                si orientado-al-norte entonces inicio
+                    avanza;
+                    esquiva(sucede(n));
+                fin
+                sino inicio
+                    si orientado-al-sur entonces inicio
+                        avanza;
+                        esquiva(precede(n));
+                    fin;
+                    avanza;
+                    esquiva(n);
+                fin;
+            fin;
+            gira-izquierda;
+            esquiva(n);
+       fin
+       sino inicio
+           repetir n veces deja-zumbador;
+           apagate;
+       fin;
+   fin;
+    inicia-ejecucion
+        esquiva(0);
+        deja-zumbador;
+        apagate;
+    termina-ejecucion
+finalizar-programa
