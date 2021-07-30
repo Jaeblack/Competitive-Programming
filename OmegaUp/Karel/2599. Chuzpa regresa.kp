@@ -1,0 +1,70 @@
+iniciar-programa
+    define-nueva-instruccion checa como inicio
+        si junto-a-zumbador entonces inicio
+            coge-zumbador;
+            si junto-a-zumbador entonces inicio
+                deja-zumbador;
+            fin
+            sino apagate;
+        fin;
+    fin;
+    define-nueva-instruccion fosa como inicio
+        mientras no-orientado-al-norte hacer gira-izquierda;
+        si frente-libre entonces inicio
+            avanza;
+            si no-junto-a-zumbador entonces inicio
+                repetir 2 veces deja-zumbador;
+                fosa;
+            fin
+            sino inicio
+                checa;
+            fin;
+            mientras no-orientado-al-sur hacer gira-izquierda;
+            avanza;
+        fin;
+        mientras no-orientado-al-este hacer gira-izquierda;
+        si frente-libre entonces inicio
+            avanza;
+             si no-junto-a-zumbador entonces inicio
+                repetir 2 veces deja-zumbador;
+                fosa;
+            fin
+            sino inicio
+                checa;
+            fin;
+            mientras no-orientado-al-oeste hacer gira-izquierda;
+            avanza;
+        fin;
+        mientras no-orientado-al-oeste hacer gira-izquierda;
+        si frente-libre entonces inicio
+            avanza;
+            si no-junto-a-zumbador entonces inicio
+                repetir 2 veces deja-zumbador;
+                fosa;
+            fin
+            sino inicio
+                checa;
+            fin;
+            mientras no-orientado-al-este hacer gira-izquierda;
+            avanza;
+        fin;
+        mientras no-orientado-al-sur hacer gira-izquierda;
+        si frente-libre entonces inicio
+            avanza;
+            si no-junto-a-zumbador entonces inicio
+                repetir 2 veces deja-zumbador;
+                fosa;
+            fin
+            sino inicio
+                checa;
+            fin;
+            mientras no-orientado-al-norte hacer gira-izquierda;
+            avanza;
+        fin;
+    fin;
+    inicia-ejecucion
+        checa;
+        fosa;
+        apagate;
+    termina-ejecucion
+finalizar-programa
