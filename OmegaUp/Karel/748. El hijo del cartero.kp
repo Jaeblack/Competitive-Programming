@@ -1,0 +1,111 @@
+iniciar-programa
+    define-nueva-instruccion norte como mientras no-orientado-al-norte hacer gira-izquierda;
+        define-nueva-instruccion oeste como mientras no-orientado-al-oeste hacer gira-izquierda;
+            define-nueva-instruccion este como mientras no-orientado-al-este hacer gira-izquierda;
+                define-nueva-instruccion sur como mientras no-orientado-al-sur hacer gira-izquierda;
+    define-nueva-instruccion origen como inicio
+        oeste;
+        mientras frente-libre hacer avanza;
+        sur;
+        mientras frente-libre hacer avanza;
+        este;
+    fin;
+    define-nueva-instruccion acomoda(n) como inicio
+        si junto-a-zumbador entonces inicio
+            coge-zumbador;
+            acomoda(sucede(n));
+                si orientado-al-este entonces inicio
+                    si frente-libre entonces inicio
+                        avanza;
+                    fin sino inicio
+                        oeste;
+                        mientras frente-libre hacer avanza;
+                        norte;
+                        avanza;
+                        este;
+                    fin;
+                fin sino este;
+        fin sino inicio
+            si frente-libre entonces inicio
+                avanza;
+                si junto-a-zumbador entonces inicio
+                    acomoda(0);
+                    deja-zumbador;
+                fin sino inicio
+                    origen;
+                    norte;
+                fin;
+            fin;
+            origen;
+            norte;
+        fin;
+    fin;
+    define-nueva-instruccion trae como inicio
+        si junto-a-zumbador entonces inicio
+            coge-zumbador;
+            trae;
+            deja-zumbador;
+        fin sino inicio
+            oeste;
+            mientras frente-libre hacer avanza;
+            este;
+            mientras junto-a-zumbador hacer avanza;
+        fin;
+    fin;
+    define-nueva-instruccion cuenta(n) como inicio
+        si frente-libre y no-junto-a-zumbador entonces inicio
+            avanza;
+            cuenta(sucede(n));
+        fin sino inicio
+            si junto-a-zumbador entonces inicio
+                norte;
+                avanza;
+                repetir n veces deja-zumbador;
+                sur;
+                avanza;
+                este;
+                coge-zumbador;
+                cuenta(0);
+            fin sino inicio
+                oeste;
+                mientras frente-libre hacer avanza;
+                norte;
+                avanza;
+                este;
+                mientras orientado-al-este hacer inicio
+                    mientras no-junto-a-zumbador y frente-libre hacer avanza;
+                    si junto-a-zumbador entonces inicio
+                        trae;
+                        avanza;
+                    fin sino oeste;
+                fin;
+            fin;
+        fin;
+    fin;
+    define-nueva-instruccion flojo(n) como inicio
+        si no-junto-a-zumbador entonces inicio
+            avanza;
+            flojo(sucede(n));
+        fin sino inicio
+            origen;
+            mientras junto-a-zumbador hacer coge-zumbador;
+            repetir sucede(n) veces deja-zumbador;
+        fin;
+    fin;
+    inicia-ejecucion
+        este;
+        acomoda(0);
+        deja-zumbador;
+        origen;
+        mientras no-junto-a-zumbador hacer avanza;
+        coge-zumbador;
+        cuenta(0);
+        mientras frente-libre hacer avanza;
+        este;
+        acomoda(0);
+        deja-zumbador;
+        origen;
+        flojo(0);
+        apagate;
+    termina-ejecucion
+finalizar-programa
