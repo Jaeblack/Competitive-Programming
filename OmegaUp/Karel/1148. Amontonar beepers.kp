@@ -1,0 +1,25 @@
+iniciar-programa
+    define-nueva-instruccion norte como mientras no-orientado-al-norte hacer gira-izquierda;
+        define-nueva-instruccion este como mientras no-orientado-al-este hacer gira-izquierda;
+            define-nueva-instruccion oeste como mientras no-orientado-al-oeste hacer gira-izquierda;
+                define-nueva-instruccion sur como mientras no-orientado-al-sur hacer gira-izquierda;
+    inicia-ejecucion
+        este;
+        mientras junto-a-zumbador y orientado-al-este hacer inicio
+            norte;
+            mientras orientado-al-norte hacer inicio
+                mientras junto-a-zumbador hacer coge-zumbador;
+                si frente-libre entonces inicio
+                    avanza;
+                fin sino sur;
+            fin;
+            mientras frente-libre hacer avanza;
+            mientras algun-zumbador-en-la-mochila hacer deja-zumbador;
+            este;
+            si frente-libre entonces inicio
+                avanza;
+            fin sino apagate;
+        fin;
+        apagate;
+    termina-ejecucion
+finalizar-programa
