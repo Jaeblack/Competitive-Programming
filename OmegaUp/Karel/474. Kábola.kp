@@ -1,0 +1,31 @@
+iniciar-programa
+    define-nueva-instruccion norte como mientras no-orientado-al-norte hacer gira-izquierda;
+        define-nueva-instruccion este como mientras no-orientado-al-este hacer gira-izquierda;
+            define-nueva-instruccion oeste como mientras no-orientado-al-oeste hacer gira-izquierda;
+                define-nueva-instruccion sur como mientras no-orientado-al-sur hacer gira-izquierda;
+    define-nueva-instruccion kabola(n) como inicio
+        si junto-a-zumbador entonces inicio
+            coge-zumbador;
+            kabola(sucede(n));
+        fin sino inicio
+            repetir n veces avanza;
+            repetir 2 veces gira-izquierda;
+            repetir 4 veces inicio
+                repetir n veces inicio
+                    avanza;
+                    repetir 3 veces gira-izquierda;
+                    avanza;
+                    gira-izquierda;
+                    deja-zumbador;
+                fin;
+                gira-izquierda;
+            fin;
+        fin;
+    fin;
+    inicia-ejecucion
+        si no junto-a-zumbador entonces inicio
+            deja-zumbador;
+        fin sino kabola(0);
+        apagate;
+    termina-ejecucion
+finalizar-programa
