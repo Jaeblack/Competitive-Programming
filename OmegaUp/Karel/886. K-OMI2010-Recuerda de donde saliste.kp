@@ -1,0 +1,37 @@
+iniciar-programa
+    define-nueva-instruccion corre(n) como inicio
+        si junto-a-zumbador entonces inicio
+            mientras junto-a-zumbador hacer inicio
+                coge-zumbador;
+                gira-izquierda;
+            fin;
+            corre(n);
+        fin
+        sino inicio
+            si orientado-al-norte entonces inicio
+                avanza;
+                si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(n))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces apagate;
+                corre(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(n)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))));
+            fin;
+            si orientado-al-sur entonces inicio
+                avanza;
+                si si-es-cero(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(n))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces apagate;
+                corre(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(n)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))));
+            fin;
+            si orientado-al-este entonces inicio
+                avanza;
+                si si-es-cero(sucede(n)) entonces apagate;
+                corre(sucede(n));
+            fin;
+            si orientado-al-oeste entonces inicio
+                avanza;
+                si si-es-cero(precede(n)) entonces apagate;
+                corre(precede(n));
+            fin;
+         fin;
+    fin;
+    inicia-ejecucion
+        corre(0);
+        apagate;
+    termina-ejecucion
+finalizar-programa
