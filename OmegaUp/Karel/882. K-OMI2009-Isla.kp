@@ -1,0 +1,78 @@
+iniciar-programa
+    define-nueva-instruccion origen como inicio
+        gira-izquierda;
+        mientras frente-libre hacer avanza;
+        mientras no-orientado-al-oeste hacer gira-izquierda;
+        mientras frente-libre hacer avanza;
+        gira-izquierda;
+        mientras frente-libre hacer avanza;
+        apagate;
+    fin;
+    define-nueva-instruccion sal como inicio
+            mientras derecha-bloqueada hacer inicio
+                gira-izquierda;
+                mientras frente-libre hacer avanza;
+                si no-junto-a-zumbador entonces origen;
+                repetir 2 veces gira-izquierda;
+                mientras frente-libre hacer avanza;
+                gira-izquierda;
+                si frente-libre entonces inicio
+                    avanza;
+                    si derecha-libre entonces inicio
+                        repetir 3 veces gira-izquierda;
+                        avanza;
+                        si derecha-libre entonces inicio
+                            repetir 3 veces gira-izquierda;
+                            avanza;
+                        fin;
+                    fin;
+                fin
+                sino inicio
+                    gira-izquierda;
+                    avanza;
+                    si derecha-libre entonces inicio
+                        repetir 3 veces gira-izquierda;
+                        avanza;
+                        si derecha-libre entonces inicio
+                            repetir 3 veces gira-izquierda;
+                            avanza;
+                        fin;
+                    fin;
+                fin;
+           fin;
+     fin;
+    define-nueva-instruccion pinta como inicio
+        mientras derecha-libre hacer gira-izquierda;
+            mientras derecha-bloqueada y no-junto-a-zumbador hacer inicio
+                deja-zumbador;
+                si frente-libre entonces inicio
+                    avanza;
+                    si derecha-libre entonces inicio
+                        repetir 3 veces gira-izquierda;
+                        avanza;
+                        si derecha-libre entonces inicio
+                            repetir 3 veces gira-izquierda;
+                            avanza;
+                        fin;
+                    fin;
+                fin
+                sino inicio
+                    gira-izquierda;
+                    avanza;
+                    si derecha-libre entonces inicio
+                        repetir 3 veces gira-izquierda;
+                        avanza;
+                        si derecha-libre entonces inicio
+                            repetir 3 veces gira-izquierda;
+                            avanza;
+                        fin;
+                    fin;
+                fin;
+           fin;
+    fin;
+    inicia-ejecucion
+        pinta;
+        sal;
+        apagate;
+    termina-ejecucion
+finalizar-programa
