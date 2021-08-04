@@ -1,0 +1,139 @@
+iniciar-programa
+    define-nueva-instruccion norte como mientras no-orientado-al-norte hacer gira-izquierda;
+    define-nueva-instruccion sur como mientras no-orientado-al-sur hacer gira-izquierda;
+    define-nueva-instruccion este como mientras no-orientado-al-este hacer gira-izquierda;
+    define-nueva-instruccion oeste como mientras no-orientado-al-oeste hacer gira-izquierda;
+    define-nueva-instruccion regresa como inicio
+        repetir 2 veces gira-izquierda;
+        avanza;
+    fin;
+    define-nueva-instruccion busca como inicio
+        si junto-a-zumbador entonces inicio
+            coge-zumbador;
+            si no-junto-a-zumbador entonces inicio
+                si frente-libre entonces inicio
+                    avanza;
+                    si junto-a-zumbador entonces inicio
+                        regresa;
+                        si frente-libre entonces inicio
+                            avanza;
+                            si junto-a-zumbador entonces inicio
+                                regresa;
+                                gira-izquierda;
+                                si frente-libre entonces inicio
+                                    avanza;
+                                    si junto-a-zumbador entonces inicio
+                                        regresa;
+                                        si frente-libre entonces inicio
+                                            avanza;
+                                            si junto-a-zumbador entonces inicio
+                                                regresa;
+                                                repetir 3 veces deja-zumbador;
+                                            fin sino inicio
+                                                regresa;
+                                                repetir 2 veces deja-zumbador;
+                                            fin;
+                                        fin sino repetir 2 veces deja-zumbador;
+                                    fin sino inicio
+                                        regresa;
+                                        repetir 2 veces deja-zumbador;
+                                    fin;
+                                fin sino repetir 2 veces deja-zumbador;
+                            fin sino inicio
+                                regresa;
+                                repetir 2 veces deja-zumbador;
+                            fin;
+                         fin sino repetir 2 veces deja-zumbador;
+                      fin sino inicio
+                          regresa;
+                          repetir 2 veces deja-zumbador;
+                      fin;
+                   fin sino repetir 2 veces deja-zumbador;
+                fin sino inicio
+                    deja-zumbador;
+                    sal-de-instruccion;
+                fin;
+           fin;
+
+        norte;
+        si frente-libre entonces inicio
+            avanza;
+            si junto-a-zumbador entonces busca;
+            sur;
+            avanza;
+        fin;
+        este;
+        si frente-libre entonces inicio
+            avanza;
+            si junto-a-zumbador entonces busca;
+            oeste;
+            avanza;
+        fin;
+        oeste;
+        si frente-libre entonces inicio
+            avanza;
+            si junto-a-zumbador entonces busca;
+            este;
+            avanza;
+        fin;
+        sur;
+        si frente-libre entonces inicio
+            avanza;
+            si junto-a-zumbador entonces busca;
+            norte;
+            avanza;
+         fin;
+    fin;
+
+    define-nueva-instruccion quita como inicio
+        si junto-a-zumbador entonces inicio
+            coge-zumbador;
+            si junto-a-zumbador entonces inicio
+                coge-zumbador;
+                si junto-a-zumbador entonces inicio
+                    coge-zumbador;
+                fin sino inicio
+                    deja-zumbador;
+                fin;
+            fin sino inicio
+                deja-zumbador;
+                sal-de-instruccion;
+            fin;
+        fin;
+
+
+        norte;
+        si frente-libre entonces inicio
+            avanza;
+            si junto-a-zumbador entonces quita;
+            sur;
+            avanza;
+        fin;
+        este;
+        si frente-libre entonces inicio
+            avanza;
+            si junto-a-zumbador entonces quita;
+            oeste;
+            avanza;
+        fin;
+        oeste;
+        si frente-libre entonces inicio
+            avanza;
+            si junto-a-zumbador entonces quita;
+            este;
+            avanza;
+        fin;
+        sur;
+        si frente-libre entonces inicio
+            avanza;
+            si junto-a-zumbador entonces quita;
+            norte;
+            avanza;
+         fin;
+    fin;
+    inicia-ejecucion
+        busca;
+        quita;
+        apagate;
+    termina-ejecucion
+finalizar-programa
