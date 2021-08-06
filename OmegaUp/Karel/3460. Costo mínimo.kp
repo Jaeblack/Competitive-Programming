@@ -1,0 +1,130 @@
+iniciar-programa
+    define-nueva-instruccion norte como mientras no-orientado-al-norte hacer gira-izquierda;
+    define-nueva-instruccion sur como mientras no-orientado-al-sur hacer gira-izquierda;
+    define-nueva-instruccion este como mientras no-orientado-al-este hacer gira-izquierda;
+    define-nueva-instruccion oeste como mientras no-orientado-al-oeste hacer gira-izquierda;
+
+    define-nueva-instruccion ir11 como inicio
+        oeste;
+        mientras frente-libre hacer avanza;
+        este;
+    fin;
+    define-nueva-instruccion aver(n) como inicio
+        si no si-es-cero(n) entonces inicio
+            si junto-a-zumbador entonces inicio
+                coge-zumbador;
+                aver(precede(n));
+                deja-zumbador;
+            fin sino inicio
+                oeste;
+                avanza;
+                repetir n veces coge-zumbador;
+                este;
+                avanza;
+                repetir n veces deja-zumbador;
+            fin;
+        fin;
+    fin;
+    define-nueva-instruccion compara(n) como inicio
+        si junto-a-zumbador entonces inicio
+            coge-zumbador;
+            compara(sucede(n));
+        fin sino inicio
+            repetir n veces deja-zumbador;
+            avanza;
+            aver(n);
+        fin;
+    fin;
+
+    define-nueva-instruccion pasadas(n) como inicio
+        si junto-a-zumbador entonces inicio
+            avanza;
+            pasadas(sucede(n));
+        fin sino inicio
+            ir11;
+            repetir precede(n) veces inicio
+                ir11;
+                este;
+                repetir precede(n) veces inicio
+                    compara(0);
+                fin;
+            fin;
+        fin;
+     fin;
+
+    define-nueva-instruccion lleva(n) como inicio
+        si junto-a-zumbador entonces inicio
+            coge-zumbador;
+            lleva(sucede(n));
+        fin sino inicio
+            avanza;
+            repetir n veces deja-zumbador;
+            avanza;
+            repetir n veces deja-zumbador;
+        fin;
+    fin;
+
+    define-nueva-instruccion suma(n) como inicio
+        si junto-a-zumbador entonces inicio
+            coge-zumbador;
+            suma(sucede(n));
+            deja-zumbador;
+        fin sino inicio
+            ir11;
+            norte;
+            repetir 2 veces avanza;
+            sur;
+        fin;
+    fin;
+    define-nueva-instruccion juntalo(n) como inicio
+        si junto-a-zumbador entonces inicio
+            coge-zumbador;
+            juntalo(sucede(n));
+        fin sino inicio
+            ir11;
+            mientras junto-a-zumbador hacer avanza;
+            repetir n veces deja-zumbador;
+        fin;
+    fin;
+
+    define-nueva-instruccion acomodale(n) como inicio
+        si frente-libre entonces inicio inicio
+            mientras junto-a-zumbador hacer avanza;
+            mientras no-junto-a-zumbador y frente-libre hacer avanza;
+            si junto-a-zumbador entonces inicio
+                juntalo(0);
+                acomodale(0);
+            fin sino inicio
+                ir11;
+                este;
+            fin;
+        fin;
+    fin;
+    fin;
+
+    define-nueva-instruccion dos como inicio
+       si junto-a-zumbador entonces inicio
+        pasadas(0);
+        ir11;
+        suma(0);
+        repetir 2 veces avanza;
+        este;
+        avanza;
+        si junto-a-zumbador entonces inicio
+            suma(0);
+        fin sino inicio
+                 apagate;
+        fin;
+        lleva(0);
+        este;
+        acomodale(0);
+        dos;
+       fin;
+    fin;
+
+    inicia-ejecucion
+        este;
+        dos;
+        apagate;
+    termina-ejecucion
+finalizar-programa
