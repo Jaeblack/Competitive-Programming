@@ -1,0 +1,213 @@
+iniciar-programa
+    define-nueva-instruccion norte como mientras no-orientado-al-norte hacer gira-izquierda;
+    define-nueva-instruccion oeste como mientras no-orientado-al-oeste hacer gira-izquierda;
+    define-nueva-instruccion este como mientras no-orientado-al-este hacer gira-izquierda;
+    define-nueva-instruccion sur como mientras no-orientado-al-sur hacer gira-izquierda;
+    define-nueva-instruccion lleva(n) como inicio
+        si junto-a-zumbador entonces inicio
+            coge-zumbador;
+            lleva(sucede(n));
+        fin sino inicio
+            avanza;
+            repetir n veces deja-zumbador;
+        fin;
+    fin;
+    define-nueva-instruccion busca como inicio
+        norte;
+        si frente-libre entonces inicio
+            avanza;
+            si junto-a-zumbador entonces inicio
+                coge-zumbador;
+                si junto-a-zumbador entonces inicio
+                    coge-zumbador;
+                    si junto-a-zumbador entonces inicio
+                        repetir 2 veces deja-zumbador;
+                        sur;
+                        avanza;
+                    fin sino inicio
+                        busca;
+                        sur;
+                        lleva(2);
+                    fin;
+                fin sino inicio
+                    busca;
+                    sur;
+                    lleva(0);
+                fin;
+            fin sino inicio
+                sur;
+                avanza;
+            fin;
+        fin;
+        este;
+        si frente-libre entonces inicio
+            avanza;
+            si junto-a-zumbador entonces inicio
+                coge-zumbador;
+                si junto-a-zumbador entonces inicio
+                    coge-zumbador;
+                    si junto-a-zumbador entonces inicio
+                        repetir 2 veces deja-zumbador;
+                        oeste;
+                        avanza;
+                    fin sino inicio
+                        busca;
+                        oeste;
+                        lleva(2);
+                    fin;
+                fin sino inicio
+                    busca;
+                    oeste;
+                    lleva(0);
+                fin;
+            fin sino inicio
+                oeste;
+                avanza;
+            fin;
+        fin;
+        oeste;
+        si frente-libre entonces inicio
+            avanza;
+            si junto-a-zumbador entonces inicio
+                coge-zumbador;
+                si junto-a-zumbador entonces inicio
+                    coge-zumbador;
+                    si junto-a-zumbador entonces inicio
+                        repetir 2 veces deja-zumbador;
+                        este;
+                        avanza;
+                    fin sino inicio
+                        busca;
+                        este;
+                        lleva(2);
+                    fin;
+                fin sino inicio
+                    busca;
+                    este;
+                    lleva(0);
+                fin;
+            fin sino inicio
+                este;
+                avanza;
+            fin;
+        fin;
+        sur;
+        si frente-libre entonces inicio
+            avanza;
+            si junto-a-zumbador entonces inicio
+                coge-zumbador;
+                si junto-a-zumbador entonces inicio
+                    coge-zumbador;
+                    si junto-a-zumbador entonces inicio
+                        repetir 2 veces deja-zumbador;
+                        norte;
+                        avanza;
+                    fin sino inicio
+                        busca;
+                        norte;
+                        lleva(2);
+                    fin;
+                fin sino inicio
+                    busca;
+                    norte;
+                    lleva(0);
+                fin;
+            fin sino inicio
+                norte;
+                avanza;
+            fin;
+        fin;
+   fin;
+   define-nueva-instruccion mitad como inicio
+       si junto-a-zumbador entonces inicio
+           coge-zumbador;
+           mitad;
+           si orientado-al-sur entonces inicio
+               deja-zumbador;
+               este;
+           fin sino sur;
+       fin;
+    fin;
+    define-nueva-instruccion origen como inicio
+        oeste;
+        mientras frente-libre hacer avanza;
+        sur;
+        mientras frente-libre hacer avanza;
+        norte;
+    fin;
+    define-nueva-instruccion compara(n) como inicio
+        si junto-a-zumbador entonces inicio
+            coge-zumbador;
+            compara(sucede(n));
+        fin sino inicio
+            origen;
+            repetir n veces si junto-a-zumbador entonces coge-zumbador;
+            repetir n veces deja-zumbador;
+            norte;
+        fin;
+    fin;
+    define-nueva-instruccion buscale como inicio
+             si junto-a-zumbador entonces inicio
+                coge-zumbador;
+                si junto-a-zumbador entonces inicio
+                    coge-zumbador;
+                        busca;
+                        repetir 2 veces deja-zumbador;
+                fin sino inicio
+                    busca;
+                fin;
+            fin;
+            compara(0);
+    fin;
+    define-nueva-instruccion lacra como inicio
+        si orientado-al-norte entonces inicio
+            este;
+            mientras orientado-al-este hacer inicio
+                si frente-libre entonces inicio
+                    avanza;
+                    si junto-a-zumbador entonces inicio
+                        buscale;
+                        lacra;
+                        sal-de-instruccion;
+                    fin;
+                fin sino inicio
+                    oeste;
+                    mientras frente-libre hacer avanza;
+                    norte;
+                    si frente-libre entonces inicio
+                        avanza;
+                        mientras orientado-al-norte hacer inicio
+                            este;
+                            mientras orientado-al-este hacer inicio
+                                si junto-a-zumbador entonces inicio
+                                    buscale;
+                                    lacra;
+                                    sal-de-instruccion;
+                                fin sino inicio
+                                    si frente-libre entonces inicio
+                                        avanza;
+                                    fin sino oeste;
+                                fin;
+                            fin;
+                            mientras frente-libre hacer avanza;
+                            norte;
+                            si frente-libre entonces inicio
+                                avanza;
+                            fin sino inicio
+                                origen;
+                                mitad;
+                                apagate;
+                            fin;
+                       fin;
+                   fin;
+               fin;
+          fin;
+      fin;
+  fin;
+    inicia-ejecucion
+        origen;
+            buscale;
+            lacra;
+        apagate;
+    termina-ejecucion
+finalizar-programa
