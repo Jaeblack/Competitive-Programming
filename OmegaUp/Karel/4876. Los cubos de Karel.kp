@@ -1,0 +1,76 @@
+iniciar-programa
+    define-nueva-instruccion cubea(n) como inicio
+        si si-es-cero(n) entonces inicio
+            apagate;
+        fin
+        sino inicio
+            repetir 4 veces inicio
+                si no junto-a-zumbador entonces repetir n veces deja-zumbador;
+                repetir 2 veces inicio
+                    repetir precede(n) veces inicio
+                        avanza;
+                        si no-junto-a-zumbador entonces repetir n veces deja-zumbador;
+                    fin;
+                fin;
+                gira-izquierda;
+            fin;
+            si si-es-cero(precede(n)) entonces apagate;
+            avanza;
+            gira-izquierda;
+            avanza;
+            repetir 3 veces gira-izquierda;
+            cubea(precede(n));
+        fin;
+    fin;
+    define-nueva-instruccion revisa(n) como inicio
+        repetir 2 veces inicio
+            si frente-libre entonces inicio
+                avanza;
+            fin
+            sino inicio
+               mientras no-orientado-al-oeste hacer gira-izquierda;
+               mientras frente-libre hacer avanza;
+               gira-izquierda;
+               mientras frente-libre hacer avanza;
+               gira-izquierda;
+                cubea(n);
+            fin;
+        fin;
+        revisa(sucede(n));
+    fin;
+    define-nueva-instruccion midele(n) como inicio
+        si frente-libre entonces inicio
+            avanza;
+            midele(sucede(n));
+        fin
+        sino inicio
+            repetir sucede(n) veces si junto-a-zumbador entonces coge-zumbador;
+            si junto-a-zumbador entonces inicio
+                mientras no-orientado-al-este hacer gira-izquierda;
+            fin
+            sino inicio
+                mientras no-orientado-al-sur hacer gira-izquierda;
+            fin;
+            mientras junto-a-zumbador hacer coge-zumbador;
+            revisa(1);
+       fin;
+    fin;
+    define-nueva-instruccion mide(n) como inicio
+        si frente-libre entonces inicio
+            avanza;
+            mide(sucede(n));
+        fin
+        sino inicio
+            repetir sucede(n) veces deja-zumbador;
+            repetir 3 veces gira-izquierda;
+            mientras frente-libre hacer avanza;
+            repetir 2 veces gira-izquierda;
+            midele(0);
+        fin;
+    fin;
+    inicia-ejecucion
+        mientras no-orientado-al-norte hacer gira-izquierda;
+        mide(0);
+        apagate;
+    termina-ejecucion
+finalizar-programa
