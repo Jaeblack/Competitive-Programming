@@ -1,0 +1,143 @@
+iniciar-programa
+    define-nueva-instruccion norte como mientras no-orientado-al-norte hacer gira-izquierda;
+    define-nueva-instruccion oeste como mientras no-orientado-al-oeste hacer gira-izquierda;
+    define-nueva-instruccion este como mientras no-orientado-al-este hacer gira-izquierda;
+    define-nueva-instruccion sur como mientras no-orientado-al-sur hacer gira-izquierda;
+    define-nueva-instruccion origen como inicio
+        oeste;
+        mientras frente-libre hacer avanza;
+        sur;
+        mientras frente-libre hacer avanza;
+        norte;
+    fin;
+    define-nueva-instruccion cuadra(n) como inicio
+        oeste;
+        repetir 4 veces inicio
+            repetir n veces deja-zumbador;
+            avanza;
+            gira-izquierda;
+        fin;
+            repetir 2 veces si frente-libre entonces avanza;
+    fin;
+    define-nueva-instruccion salta como inicio
+        este;
+        mientras frente-libre hacer avanza;
+        norte;
+        mientras derecha-bloqueada hacer avanza;
+        este;
+        avanza;
+        mientras derecha-bloqueada hacer avanza;
+        sur;
+        avanza;
+        oeste;
+        avanza;
+    fin;
+    define-nueva-instruccion ve como inicio
+       si orientado-al-norte entonces inicio
+           este;
+           ve;
+       fin sino inicio
+           si junto-a-zumbador entonces inicio
+               si frente-libre entonces inicio
+                   oeste;
+                   si frente-bloqueado entonces inicio
+                       este;
+                       avanza;
+                       ve;
+                       cuadra(1);
+                       sur;
+                       repetir 2 veces si frente-libre entonces avanza;
+                       este;
+                       mientras frente-libre hacer avanza;
+                       sur;
+                   fin sino inicio
+                       este;
+                       avanza;
+                       ve;
+                       cuadra(1);
+                   fin;
+               fin sino inicio
+                   oeste;
+                   si frente-libre entonces inicio
+                       mientras frente-libre hacer avanza;
+                       norte;
+                       si frente-libre entonces inicio
+                           avanza;
+                           ve;
+                           cuadra(1);
+                       fin sino inicio
+                           salta;
+                       fin;
+                   fin sino inicio
+                       norte;
+                       si frente-libre entonces inicio
+                           avanza;
+                           ve;
+                           cuadra(1);
+                           sur;
+                           repetir 2 veces si frente-libre entonces avanza;
+                           este;
+                           mientras frente-libre hacer avanza;
+                           sur;
+                       fin sino inicio
+                           salta;
+                       fin;
+                   fin;
+               fin;
+            fin sino inicio
+               si frente-libre entonces inicio
+                   oeste;
+                   si frente-bloqueado entonces inicio
+                       este;
+                       avanza;
+                       ve;
+                       cuadra(0);
+                       sur;
+                       repetir 2 veces si frente-libre entonces avanza;
+                       este;
+                       mientras frente-libre hacer avanza;
+                       sur;
+                   fin sino inicio
+                       este;
+                       avanza;
+                       ve;
+                       cuadra(0);
+                   fin;
+               fin sino inicio
+                   oeste;
+                   si frente-libre entonces inicio
+                       mientras frente-libre hacer avanza;
+                       norte;
+                       si frente-libre entonces inicio
+                           avanza;
+                           ve;
+                           cuadra(0);
+                       fin sino inicio
+                           salta;
+                       fin;
+                   fin sino inicio
+                       norte;
+                       si frente-libre entonces inicio
+                           avanza;
+                           ve;
+                           cuadra(0);
+                           sur;
+                           repetir 2 veces si frente-libre entonces avanza;
+                           este;
+                           mientras frente-libre hacer avanza;
+                           sur;
+                       fin sino inicio
+                           salta;
+                       fin;
+                   fin;
+               fin;
+            fin;
+        fin;
+    fin;
+
+    inicia-ejecucion
+        origen;
+        ve;
+        apagate;
+    termina-ejecucion
+finalizar-programa
