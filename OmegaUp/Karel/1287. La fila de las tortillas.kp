@@ -1,0 +1,111 @@
+iniciar-programa
+
+	define-nueva-instruccion norte como inicio
+    	mientras no-orientado-al-norte hacer gira-izquierda;
+    fin;
+    define-nueva-instruccion sur como inicio
+    	mientras no-orientado-al-sur hacer gira-izquierda;
+    fin;
+    define-nueva-instruccion este como inicio
+    	mientras no-orientado-al-este hacer gira-izquierda;
+    fin;
+    define-nueva-instruccion oeste como inicio
+    	mientras no-orientado-al-oeste hacer gira-izquierda;
+    fin;
+    
+    define-nueva-instruccion regresa-a-tortilleria como inicio
+    	oeste;
+        mientras frente-libre hacer avanza;
+        norte;
+        avanza;
+        sur;
+    fin;
+    
+    define-nueva-instruccion uno-uno como inicio
+    	sur;
+        mientras frente-libre hacer avanza;
+        oeste;
+        mientras frente-libre hacer avanza;
+        este;
+    fin;
+    
+    
+	define-nueva-instruccion vaciar como inicio
+    	si ningun-zumbador-en-la-mochila entonces apagate;
+        
+        gira-izquierda;
+        avanza;
+    	repetir 9900 veces inicio
+       		si algun-zumbador-en-la-mochila entonces inicio
+            	deja-zumbador;
+            fin sino sal-de-instruccion;
+       fin;
+       
+    fin;
+    
+    define-nueva-instruccion recorre-clientes como inicio
+    	mientras junto-a-zumbador y orientado-al-oeste hacer inicio
+        	mientras junto-a-zumbador hacer inicio
+            	coge-zumbador;
+                avanza;
+                deja-zumbador;
+                este;
+                avanza;
+                oeste;
+            fin;
+            este;
+            si frente-libre entonces inicio
+            	avanza;
+            fin;
+            oeste;
+        fin;
+        regresa-a-tortilleria;
+    fin;
+    
+    define-nueva-instruccion atiende como inicio
+    	mientras junto-a-zumbador hacer inicio
+        	avanza;
+            si junto-a-zumbador entonces inicio
+            	coge-zumbador;
+                norte;
+                avanza;
+                si junto-a-zumbador entonces inicio
+                	coge-zumbador;
+                    avanza;
+                    repetir 2 veces deja-zumbador;
+                    sur;
+                	avanza;
+                fin sino inicio
+                	sur;
+                    avanza;
+                    deja-zumbador;
+                fin;
+            fin sino inicio
+            	este;
+                avanza;
+                oeste;
+        		si junto-a-zumbador entonces inicio
+            		recorre-clientes;
+                fin sino inicio
+        			apagate;
+        		fin;
+            fin;
+        fin;
+    fin;
+    
+   
+    inicia-ejecucion
+       vaciar;
+       sur;
+       atiende;
+       uno-uno;
+       si no-junto-a-zumbador entonces inicio
+       		avanza;
+       		oeste;
+       		recorre-clientes;
+       fin;
+       
+       
+        apagate;
+    termina-ejecucion
+finalizar-programa
