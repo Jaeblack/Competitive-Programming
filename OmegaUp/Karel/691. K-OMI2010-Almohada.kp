@@ -1,0 +1,67 @@
+iniciar-programa
+    define-nueva-instruccion revisa(n) como inicio
+        si si-es-cero(n) entonces inicio
+            mientras junto-a-zumbador hacer coge-zumbador;
+            mientras no-orientado-al-oeste hacer gira-izquierda;
+            apagate
+        fin;
+        repetir precede(n) veces si junto-a-zumbador entonces coge-zumbador;
+        si junto-a-zumbador entonces inicio
+            coge-zumbador;
+            si junto-a-zumbador entonces inicio
+                mientras junto-a-zumbador hacer coge-zumbador;
+                mientras no-orientado-al-oeste hacer gira-izquierda;
+            fin
+            sino inicio
+                mientras no-orientado-al-norte hacer gira-izquierda;
+            fin;
+        fin
+        sino inicio
+            mientras no-orientado-al-este hacer gira-izquierda;
+        fin;
+        apagate;
+    fin;
+    define-nueva-instruccion recolecta(n) como inicio
+        si orientado-al-norte entonces inicio
+            repetir 3 veces gira-izquierda;
+            si junto-a-zumbador entonces inicio
+                coge-zumbador;
+                recolecta(n);
+            fin
+            sino inicio
+                recolecta(sucede(n));
+            fin;
+        fin
+        sino inicio
+            si frente-libre entonces inicio
+                avanza;
+                si junto-a-zumbador entonces inicio
+                    coge-zumbador;
+                    recolecta(n);
+                fin
+                sino inicio
+                    recolecta(sucede(n));
+                fin;
+            fin
+            sino inicio
+                repetir 2 veces gira-izquierda;
+                mientras frente-libre hacer avanza;
+                repetir 3 veces gira-izquierda;
+                si frente-libre entonces inicio
+                    avanza;
+                    recolecta(n);
+                fin
+                sino inicio
+                    repetir 2 veces gira-izquierda;
+                    mientras frente-libre hacer avanza;
+                    mientras algun-zumbador-en-la-mochila hacer deja-zumbador;
+                    revisa(n);
+                fin;
+             fin;
+         fin;
+     fin;
+    inicia-ejecucion
+        recolecta(0);
+        apagate;
+    termina-ejecucion
+finalizar-programa
