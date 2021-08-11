@@ -1,0 +1,34 @@
+iniciar-programa
+    define-nueva-instruccion escala(n) como inicio
+        si frente-libre entonces inicio
+            si junto-a-zumbador entonces inicio
+                coge-zumbador;
+                avanza;
+                si junto-a-zumbador entonces inicio
+                    coge-zumbador;
+                    repetir 2 veces gira-izquierda;
+                    avanza;
+                    repetir 2 veces gira-izquierda;
+                fin
+                sino inicio
+                    repetir 2 veces gira-izquierda;
+                    avanza;
+                    gira-izquierda;
+                    repetir sucede(n) veces deja-zumbador;
+                    si orientado-al-sur entonces apagate;
+                    escala(0);
+                fin;
+                escala(sucede(n));
+            fin
+            sino inicio
+                avanza;
+                repetir n veces deja-zumbador;
+                escala(0);
+            fin;
+      fin;
+    fin;
+    inicia-ejecucion
+        escala(0);
+        apagate;
+    termina-ejecucion
+finalizar-programa
