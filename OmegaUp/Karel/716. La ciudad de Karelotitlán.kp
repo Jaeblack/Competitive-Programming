@@ -1,0 +1,67 @@
+iniciar-programa
+    define-nueva-instruccion avanzale como inicio
+                si frente-libre entonces inicio
+                    avanza;
+                fin
+                sino inicio
+                    repetir 2 veces gira-izquierda;
+                    mientras frente-libre hacer avanza;
+                    repetir 3 veces gira-izquierda;
+                    si frente-libre entonces inicio
+                        avanza;
+                    fin
+                    sino inicio
+                        repetir 2 veces gira-izquierda;
+                        mientras frente-libre hacer avanza;
+                        gira-izquierda;
+                        mientras junto-a-zumbador hacer avanza;
+                        repetir 3 veces gira-izquierda;
+                    fin;
+                fin;
+    fin;
+    define-nueva-instruccion quita como inicio
+        si orientado-al-norte entonces inicio
+            repetir 3 veces gira-izquierda;
+            quita;
+        fin
+        sino inicio
+            si orientado-al-sur y izquierda-libre entonces inicio
+                repetir 3 veces gira-izquierda;
+                mientras frente-libre hacer avanza;
+                repetir 3 veces gira-izquierda;
+                repetir 2 veces avanza;
+                quita;
+            fin
+            sino inicio
+                si izquierda-bloqueada y orientado-al-sur entonces inicio
+                    apagate;
+                fin
+                sino inicio
+                    si junto-a-zumbador entonces inicio
+                        coge-zumbador;
+                        avanzale;
+                        si no orientado-al-sur entonces quita;
+                        deja-zumbador;
+                    fin
+                    sino inicio
+                        avanzale;
+                        si no orientado-al-sur entonces quita;
+                    fin;
+                fin;
+            fin;
+        fin;
+    fin;
+    inicia-ejecucion
+
+        mientras frente-libre hacer inicio
+            si no-junto-a-zumbador y orientado-al-este entonces apagate;
+            mientras no-orientado-al-oeste hacer gira-izquierda;
+            mientras frente-libre hacer avanza;
+            repetir 3 veces gira-izquierda;
+            repetir 2 veces avanza;
+            quita;
+            gira-izquierda;
+        fin;
+        apagate;
+    termina-ejecucion
+finalizar-programa
