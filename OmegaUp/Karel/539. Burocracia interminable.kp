@@ -1,0 +1,31 @@
+iniciar-programa
+    define-nueva-instruccion gira(n) como inicio
+        repetir n veces inicio
+            gira-izquierda;
+        fin;
+    fin;
+
+    define-nueva-instruccion esquina como inicio
+        si junto-a-zumbador entonces inicio
+            coge-zumbador;
+            esquina;
+            avanza;
+
+        fin;
+
+   fin;
+
+   define-nueva-instruccion cuenta como inicio
+       si junto-a-zumbador entonces inicio
+           esquina;
+           cuenta;
+       fin;
+       deja-zumbador;
+  fin;
+
+    inicia-ejecucion
+        gira(3);
+        cuenta;
+        apagate;
+    termina-ejecucion
+finalizar-programa
